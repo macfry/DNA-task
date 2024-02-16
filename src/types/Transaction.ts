@@ -1,6 +1,6 @@
 export interface ITransaction {
   amount: number;
-  date: Date;
+  date: string;
   id: string;
   merchantId: string;
   userId: string;
