@@ -1,22 +1,18 @@
-<script lang="ts">
-import type { PropType } from 'vue';
-
-export default {
-  props: {
-    value: {
-      type: Number as PropType<number>,
-      required: true,
-    },
-    label: {
-      type: String as PropType<string>,
-      required: true,
-    }
-  }
-}
+<script setup lang="ts">
+const props = defineProps({
+  value: {
+    type: Number,
+    required: true,
+  },
+  label: {
+    type: String,
+    required: true,
+  },
+});
 </script>
 
 <template>
   <div class="dashboard-box">
-    <span>{{ value }}</span> {{ label }}
+    <span>{{ props.value }}</span> {{ props.label }}
   </div>
 </template>

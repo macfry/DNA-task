@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   value: {
     type: Number,
     required: true,
@@ -18,6 +18,7 @@ defineProps({
 <template>
   <div class="dashboard-box">
     <span>
-      {{ value }}{{ currencySign }}</span> {{ label }}
+      {{ props.value }}{{ props.currencySign }}
+    </span> {{ props.label }}
   </div>
 </template>
