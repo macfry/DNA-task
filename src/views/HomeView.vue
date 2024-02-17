@@ -2,11 +2,12 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
+import { ActionTypes } from '@/store/action-types';
 import type { ITransaction } from '@/types/Transaction';
 import type { IMerchant } from '@/types/Merchant';
 import CurrencyBox from '@/components/CurrencyBox.vue';
 import NumberBox from '@/components/NumberBox.vue';
-import { ActionTypes } from '@/store/action-types';
+import Loader from '@/components/Loader.vue';
 
 const store = useStore();
 const router = useRouter();
@@ -42,7 +43,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
+  
   <main>
+    <Loader v-show="loading" />
+    <p v-show="error" class="danger">{{ error }}</p>
     <CurrencyBox :value="transactionsSum" :currency-sign="'$'" label="Profit" />
     <NumberBox :value="transactions.length" label="Transactions" @click="() => router.push('/transactions')" />
     <NumberBox :value="merchants.length" label="Merchants" />
@@ -50,8 +54,12 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
-  main {
-    display: flex;
-    padding: 4rem 2rem;
+ main {
+  display: flex;
+  padding: 4rem 2rem;
+
+  div + div {
+    margin-left: 2%;
   }
+}
 </style>

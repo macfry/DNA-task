@@ -4,7 +4,8 @@ import type { ITransaction } from "@/types/Transaction";
 export interface IFilters {
     dateFrom: string | null;
     dateTo: string | null;
-    merchant: string | null;  
+    merchant: string | null;
+    page: number; 
 }
 
 export type State = {
@@ -20,6 +21,7 @@ export const defaultState: State = {
         dateFrom: null,
         dateTo: null,
         merchant: null,
+        page: 1,
     },
 };
   
