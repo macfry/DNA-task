@@ -1,8 +1,7 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
 
-import { mount } from '@vue/test-utils'
-
-import NumberBox from '@/components/NumberBox.vue'
+import NumberBox from '@/components/NumberBox.vue';
 
 describe('NumberBox', () => {
   it('renders properly', () => {
@@ -11,8 +10,8 @@ describe('NumberBox', () => {
         label: 'Label',
         value: 123
       }
-    })
-    expect(wrapper).toBeTruthy()
+    });
+    expect(wrapper).toBeTruthy();
   })
 
   it('renders passed props', () => {
@@ -21,7 +20,7 @@ describe('NumberBox', () => {
         label: 'Label',
         value: 123
       }
-    })
-    expect(wrapper.text()).toContain('123 Label')
+    });
+    expect(wrapper.text()).toContain('123 Label');
   })
-})
+});

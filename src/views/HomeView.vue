@@ -45,18 +45,37 @@ onBeforeUnmount(() => {
 <template>
   
   <main>
-    <Loader v-show="loading" />
-    <p v-show="error" class="danger">{{ error }}</p>
-    <CurrencyBox :value="transactionsSum" :currency-sign="'$'" label="Profit" />
-    <NumberBox :value="transactions.length" label="Transactions" @click="() => router.push('/transactions')" />
-    <NumberBox :value="merchants.length" label="Merchants" />
+    <div class="info-box" v-show="loading || error">
+      <Loader v-show="loading" />
+      <p v-show="error" class="danger">{{ error }}</p>
+    </div>
+
+    <div class="container">
+      <CurrencyBox :value="transactionsSum" :currency-sign="'$'" label="Profit" />
+      <NumberBox :value="transactions.length" label="Transactions" @click="() => router.push('/transactions')" />
+      <NumberBox :value="merchants.length" label="Merchants" />
+    </div>
   </main>
 </template>
 
 <style lang="scss" scoped>
- main {
+main {
   display: flex;
+  flex-direction: column;
   padding: 4rem 2rem;
+}
+
+.info-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: flex;
 
   div + div {
     margin-left: 2%;

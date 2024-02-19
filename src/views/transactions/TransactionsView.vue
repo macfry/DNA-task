@@ -83,9 +83,10 @@ onBeforeUnmount(() => {
 
 <template>
     <main>
-        <Loader v-show="loading" />
-
-        <p v-show="error" class="danger">{{ error }}</p>
+        <div class="info-box">
+            <Loader v-show="loading" />
+            <p v-show="error" class="danger">{{ error }}</p>
+        </div>
 
         <div class="filter">
             <div class="filter-box">
@@ -114,6 +115,15 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
+.info-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
 .filter, .boxes {
     width: 100%;
     display: grid;
